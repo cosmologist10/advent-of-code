@@ -1,40 +1,37 @@
-# 🎄 Advent of Code 2025 – JavaScript Solutions
+# 🎄 Advent of Code 2025 – JavaScript
 
-This repository contains solutions to **Advent of Code 2025**, implemented in **JavaScript (Node.js)**.
-
-Each day’s solution is written as a standalone `.js` file and reads input from **standard input (stdin)**.
+JavaScript (Node.js) solutions for **Advent of Code 2025**.
+Solutions are organized by day under the `2025/` directory.  
+Each day contains its own JavaScript solution file and an `input.txt`.
 
 ---
 
-## 📦 Prerequisites
+## 📦 Requirements
 
-Make sure you have **Node.js** installed on your system.
+- Node.js
 
 ```bash
 node --version
 ```
 
-If Node.js is not installed, download it from:
-https://nodejs.org
-
 ---
-▶️ How to Run a Solution
 
-Copy the puzzle input for a specific day from the Advent of Code website.
+##  ▶️ Run
 
-Paste it into input.txt (replace any existing content).
+Copy the puzzle input into input.txt
 
-Run the corresponding JavaScript file:
+Run the solution:
 
 ```bash
 node dayX/file.js < dayX/input.txt
 ```
+
 ---
 
-📝 Notes
+## 📝 Notes
 
-Inputs are read using fs.readFileSync(0, "utf8"), so stdin redirection is required.
+Input is read via fs.readFileSync(0, "utf8")
 
-Each day’s solution is independent.
+Each solution is independent
 
-No external dependencies are used.
+No external dependencies
