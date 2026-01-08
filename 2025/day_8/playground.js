@@ -35,8 +35,6 @@ class UnionFind{
 
     componentSize(){
         const sizes = []
-        console.log('===', this.parent)
-        console.log('==size=', this.size)
 
         for(let i=0; i < this.parent.length; i+=1){
             if(this.find(i) === i) sizes.push(this.size[i])
@@ -48,6 +46,7 @@ class UnionFind{
 }
 
 const main = () => {
+    const t1= +new Date();
     const lines = fs.readFileSync(0, "utf8").trim().split('\n')
 
     const pts = lines.map((line) => {
@@ -82,6 +81,8 @@ const main = () => {
 
     const sizes = union_find.componentSize().sort((a, b) => b - a);
     console.log(sizes[0] * sizes[1] * sizes[2])
+    const t2= +new Date();
+    console.log(t2-t1) // 200.4 millisecond on an average of 10
 }
 
 main()

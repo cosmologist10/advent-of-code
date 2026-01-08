@@ -1,7 +1,6 @@
 
 import fs from 'fs'
 
-
 class UnionFind{
 
     constructor(N){
@@ -39,43 +38,43 @@ class UnionFind{
     }
 }
 
-const main = () => {
-    const lines = fs.readFileSync(0, "utf8").trim().split('\n')
+const t1= +new Date();
 
-    const pts = lines.map((line) => {
-        const [x,y,z] = line.split(',').map((v) => parseInt(v,10))
-        return [x,y,z]
-    })
+const lines = fs.readFileSync(0, "utf8").trim().split('\n')
 
-    const edges = []
+const pts = lines.map((line) => {
+    const [x,y,z] = line.split(',').map((v) => parseInt(v,10))
+    return [x,y,z]
+})
 
-    for(let i = 0; i < pts.length; i +=1){
-        const [x1,y1,z1] = pts[i];
+const edges = []
 
-        for(let j=i+1; j <pts.length; j +=1){
-            const [x2,y2,z2] = pts[j];
+for(let i = 0; i < pts.length; i +=1){
+    const [x1,y1,z1] = pts[i];
 
-            const dx = x1 - x2;
-            const dy = y1 - y2;
-            const dz = z1 - z2;
-            const d2 = dx*dx + dy*dy + dz*dz;
-            edges.push([d2, i, j])
-        }
+    for(let j=i+1; j <pts.length; j +=1){
+        const [x2,y2,z2] = pts[j];
+
+        const dx = x1 - x2;
+        const dy = y1 - y2;
+        const dz = z1 - z2;
+        const d2 = dx*dx + dy*dy + dz*dz;
+        edges.push([d2, i, j])
     }
-
-    edges.sort((a,b) => a[0] - b[0])
-
-    const union_find = new UnionFind(pts.length)
-
-    for(let k = 0; k < edges.length; k +=1){
-        const [_,i,j] = edges[k]
-        union_find.union(i,j)
-    }
-
-    const [x,y] = union_find.get_lastcordinate()
-
-    console.log(pts[x][0]*pts[y][0])
 }
 
-main()
+edges.sort((a,b) => a[0] - b[0])
 
+const union_find = new UnionFind(pts.length)
+
+for(let k = 0; k < edges.length; k +=1){
+    const [_,i,j] = edges[k]
+    union_find.union(i,j)
+}
+
+const [x,y] = union_find.get_lastcordinate()
+
+console.log(pts[x][0]*pts[y][0])
+
+const t2= +new Date();
+console.log(t2-t1) // 238 milliseconds on average of 10
